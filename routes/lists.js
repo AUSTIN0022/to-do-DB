@@ -36,7 +36,7 @@ router.post('/create', async (req, res) => {
 });
 
 // GET /lists/:id - Display specific list
-router.get("/:id", isLoggedIn, async (req, res) => {
+router.get("/:id",  async (req, res) => {
     const list = await List.findById(req.params.id).populate("todos");
     if (!list) {
         req.flash("error", "Cannot find that list!");
@@ -46,7 +46,7 @@ router.get("/:id", isLoggedIn, async (req, res) => {
 });
 
 // GET /lists/:id/edit - Display edit list form
-router.get("/:id/edit", isLoggedIn, async (req, res) => {
+router.get("/:id/edit",  async (req, res) => {
     const list = await List.findById(req.params.id);
     if (!list) {
         req.flash("error", "Cannot find that list!");
@@ -56,7 +56,7 @@ router.get("/:id/edit", isLoggedIn, async (req, res) => {
 });
 
 // PUT /lists/:id - Process list update
-router.put("/:id", isLoggedIn, async (req, res) => {
+router.put("/:id",  async (req, res) => {
     const { id } = req.params;
     try {
         const updatedList = await List.findByIdAndUpdate(id, { ...req.body.list }, { new: true });
