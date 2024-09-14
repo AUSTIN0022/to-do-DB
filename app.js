@@ -89,7 +89,7 @@ app.get('/home', (req, res) => {
 
 // settings route
 // settings route
-app.get('/settings', ensureAuthenticated, async (req, res) => {
+app.get('/settings', async (req, res) => {
     try {
         let userInfo = await User.findById(req.user._id);
         res.render('settings', { userInfo });
