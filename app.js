@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/to-do-DB", {
+mongoose.connect(process.env.MONGODB_DB_URL || "mongodb://127.0.0.1:27017/to-do-DB", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
