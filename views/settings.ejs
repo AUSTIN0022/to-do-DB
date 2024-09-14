@@ -1,0 +1,43 @@
+<% layout('layout') %>
+
+<div class="back-header">
+    <a href="/lists" class="back-button"><i class="fa-solid fa-arrow-left"></i>&nbsp; &nbsp; All Note's</a>
+</div>
+<div class="notes-header">
+    <h2>Profile Information</h2>
+</div>
+<div class="settings-container">
+    <form action="/settings" method="POST">
+        <section id="profile" class="card">
+            
+            <div class="profile-content">
+                <div class="profile-image">
+                    <img src="<%= userInfo.profilePhoto %>" alt="Profile picture" class="profile-pic">
+                </div>
+                <div class="profile-details">
+                    <br>
+                    <span><b>Username: </b><%= userInfo.username %> </span> <br><br>
+                    <span><b>Full name: </b><%= userInfo.firstName %>&nbsp;<%= userInfo.lastName %> </span><br><br>
+                    <span><b>Email: </b><%= userInfo.email %> </span>
+                </div>
+            </div>
+        </section>
+   
+        <section id="preferences" class="card">
+            <!-- <h2>App Preferences</h2> -->
+            <!-- <div class="toggle-switch">
+                <span>Dark Mode</span>
+                <input type="checkbox" id="dark-mode" name="darkMode" <% if (userInfo.darkMode) { %>checked<% } %>>
+                <label for="dark-mode"></label>
+            </div> -->
+            <div class="toggle-switch">
+                <span>Email Notifications</span>
+                <input type="checkbox" id="email-notifications" name="emailNotifications" <% if (userInfo.emailNotifications) { %>checked<% } %>>
+                <label for="email-notifications"></label>
+            </div>
+        </section>
+        
+        <button type="submit" class="save-btn">Save Changes</button>
+    </form>
+</div>
+

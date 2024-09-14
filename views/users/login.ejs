@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>NoteMaster - Login</title>
+</head>
+<body class="form-body">
+    <div class="form-container">
+
+    
+    <div class="login-container">
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <span class="logo-text">NoteMaster</span>
+        </div>
+        <form class="login-form" action="/login" method="POST">
+            <label class="login-label" for="username">Username</label>
+            <input class="login-input" type="text" id="username" name="username" required>
+            
+            <label class="login-label"  for="password">Password</label>
+            <input class="login-input" type="password" id="password" name="password" required>
+            
+            <a href="#" class="forgot-password">Forgot password?</a>
+            
+            <button type="submit" class="login-button">Log In</button>
+            <br>
+            <a href="/auth/google" class="login-button">Login with Google</a>
+        </form>
+        <p class="register-link">Don't have an account? <a href="/signup">Register</a></p>
+    </div>
+</div>
+</body>
+</html>

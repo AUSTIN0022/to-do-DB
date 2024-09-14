@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>NoteMaster - Register</title>
+    
+</head>
+<body>
+    <div class="register-container">
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <span class="logo-text">NoteMaster</span>
+        </div>
+        <form class="login-form" action="/signup" method="post">
+            <label class="register-label" for="username">Username</label>
+            <input class="register-input" type="text" id="username" name="username" required>
+            
+            <label class="register-label" for="email">Email</label>
+            <input class="register-input" type="email" id="email" name="email" required>
+            
+            <label class="register-label" for="password">Password</label>
+            <input class="register-input" type="password" id="password" name="password" required>
+            
+            <label class="register-label" for="confirm-password">Confirm Password</label>
+            <input class="register-input" type="password" id="confirm-password" name="confirm-password" required>
+            
+            <button type="submit" class="register-button">Register</button>
+            <br>
+            <a href="/auth/google" class="login-button">Login with Google</a>
+        </form>
+        <p class="login-link">Already have an account? <a href="/login">Log In</a></p>
+    </div>
+</body>
+</html>

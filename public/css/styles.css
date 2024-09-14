@@ -1,0 +1,951 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color:#FFF4EA;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+/* Make your rules more specific to override Bootstrap */
+.container .card {
+    padding: 10px !important;  /* Force override Bootstrap's padding */
+    margin-bottom: 10px !important;
+}
+
+.container .container {
+    padding: 5px 10px !important;
+    margin: 5px !important;
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #FFF4EA;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.8rem;
+    display: flex;
+    padding-bottom: 0.5rem;
+}
+
+.nav-links a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 200px;
+    background-color: #FFF4EA;
+    padding: 2rem 1rem;
+    margin-top: 4rem;
+}
+
+.sidebar h2 {
+    margin-bottom: 1rem;
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar li {
+    margin-bottom: 0.5rem;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    margin-top: 4rem;
+    background-color: #F8EDE3;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Search Bar Styles */
+.search-bar {
+    display: flex;
+    margin: 2rem;
+}
+
+.search-bar input {
+    flex-grow: 2;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 10px 0 0 10px;
+    background-color: #FFF4EA;
+}
+
+.search-bar button {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+}
+
+
+
+.back-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.back-button {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: black !important;
+    text-decoration: none;
+}
+.back-button:hover {
+    text-decoration: underline;
+}
+
+/* Notes Grid Styles */
+.notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.new-note-btn {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+    gap: 1rem;
+}
+.notes-grid a, .notes-grid a:active {
+    text-decoration: none;
+    color: none;
+}
+
+.notes-grid > a {
+    color: #e60000;
+}
+
+.note-card {
+    background-color: #FFF4EA;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+   
+}
+
+.note-card h2 {
+    margin-bottom: 1rem;
+}
+
+.note-card p {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+.todo-count {
+    font-size:0.7rem;
+}
+.note-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%;
+    padding-top: 1rem;
+}
+
+.note-actions form {
+    border-radius: 10px;
+}
+
+.edit-btn, .delete-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.edit-btn {
+    background-color: #333;
+    color: #fff;
+    margin-right: auto; /* Push to the left */
+}
+
+.delete-btn {
+    background-color: #ff4d4d;
+    color: #fff;
+    margin-left: auto; /* Push to the right */
+}
+
+/* Note Detail Styles */
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.note-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.note-title:focus {
+    border-color: #ddd;
+    outline: none;
+}
+
+.note-actions button {
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.save-btn {
+    background-color: #333;
+    color: #fff;
+}
+
+.note-content {
+    margin-top: 1rem;
+}
+
+.note-content textarea {
+    width: 100%;
+    min-height: 200px;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+/* Todo List Styles */
+.todo-section {
+    margin-top: 2rem;
+}
+
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.todo-list {
+    list-style-type: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.todo-item input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+.todo-item span {
+    flex-grow: 1;
+}
+
+.todo-item button {
+    padding: 0.2rem 0.5rem;
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-todo {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.add-todo input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 10px 0 0 10px;
+}
+
+.add-todo button {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+
+/* Hide the date span by default */
+.todo-item span.date {
+    display: none;
+}
+
+/* Show the date span when hovering over the li element */
+.todo-item:hover span.date {
+    display: inline;
+    color: gray;
+    
+}
+
+/* Optional: Add some styles for the todo item */
+.todo-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Optional: Add some styles for the checkbox and delete button */
+.todo-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: darkred;
+}
+
+/* Login and Register Page Styles */
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 30px;
+}
+
+.login-container, .register-container {
+    background-color: #F8EDE3;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+
+
+.logo-icon {
+    width: 25px;
+    height: 27px;
+    background-color: black;
+    margin-right: 8px;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-label, .register-label {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.login-input, .register-input {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #FFF4EA;
+}
+
+.forgot-password {
+    text-align: left;
+    margin-bottom: 1rem;
+    color: #666;
+    text-decoration: none;
+}
+
+.login-button, .register-button {
+    background-color: #000;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.register-link, .login-link {
+    text-align: center;
+    margin-top: 1rem;
+    color: #666;
+}
+
+.register-link a, .login-link a {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Landing Page Styles */
+.landing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
+}
+
+.image-container {
+    margin:20px 20px 20px 20px;
+    padding-right: 30px;
+}
+
+.landing-content {
+    max-width: 500px;
+}
+
+.landing-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    padding: 10px 0px 10px 20px;
+}
+
+.landing-content p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-weight:bold;
+    padding: 10px 0px 10px 0px;
+    margin: 10px 10px 10px 10px;
+}
+
+.landing-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 20px 0px 10px 0px
+}
+
+.landing-btn {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #333;
+    color: white;
+    width: 100%;
+}
+
+
+/* General Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.modal-content {
+  background-color: #FFF4EA;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content input, .modal-content select, .modal-content textarea {
+    background-color: #FFF4EA;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  border: none;
+  background: none;
+}
+
+.modal-body {
+  margin-top: 1rem;
+}
+
+/* Form Control */
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  color: #333;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #333;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown Styling */
+select.form-control {
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.5 6l5 5 5-5H1.5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+  font-size: 1rem;
+}
+
+textarea.form-control {
+  height: 100px;
+  resize: vertical;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.btn-close-modal,
+.btn-submit {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-close-modal {
+  background-color: #ff4d4d;
+  color: white;
+  margin-right: 0.5rem;
+}
+
+.btn-close-modal:hover {
+  background-color: #e60000;
+}
+
+.btn-submit {
+  background-color: #333;
+  color: white;
+}
+
+.btn-submit:hover {
+  background-color: #555;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+.dark-mode .container {
+    background-color: #1a1a1a;
+}
+
+.dark-mode header {
+    background-color: #2a2a2a;
+    box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+}
+
+.dark-mode .logo {
+    color: #e0e0e0;
+}
+
+.dark-mode .nav-links a {
+    color: #e0e0e0;
+}
+
+.dark-mode .sidebar {
+    background-color: #2a2a2a;
+}
+
+.dark-mode .main-content {
+    background-color: #333333;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.dark-mode .search-bar input {
+    background-color: #2a2a2a;
+    border-color: #4a4a4a;
+    color: #e0e0e0;
+}
+
+.dark-mode .search-bar button {
+    background-color: #4a4a4a;
+}
+
+.dark-mode .back-button {
+    color: #e0e0e0 !important;
+}
+
+.dark-mode .new-note-btn {
+    background-color: #4a4a4a;
+}
+
+.dark-mode .note-card {
+    background-color: #2a2a2a;
+    box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+}
+
+.dark-mode .note-card p {
+    color: #b0b0b0;
+}
+
+.dark-mode .edit-btn {
+    background-color: #4a4a4a;
+}
+
+.dark-mode .delete-btn {
+    background-color: #8B0000;
+}
+
+.dark-mode .note-title:focus {
+    border-color: #4a4a4a;
+}
+
+.dark-mode .note-content textarea {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-color: #4a4a4a;
+}
+
+.dark-mode .todo-item button {
+    background-color: #8B0000;
+}
+
+.dark-mode .add-todo input {
+    background-color: #2a2a2a;
+    border-color: #4a4a4a;
+    color: #e0e0e0;
+}
+
+.dark-mode .add-todo button {
+    background-color: #4a4a4a;
+}
+
+.dark-mode .login-container,
+.dark-mode .register-container {
+    background-color: #2a2a2a;
+}
+
+.dark-mode .login-input,
+.dark-mode .register-input {
+    background-color: #333333;
+    border-color: #4a4a4a;
+    color: #e0e0e0;
+}
+
+.dark-mode .forgot-password {
+    color: #b0b0b0;
+}
+
+.dark-mode .login-button,
+.dark-mode .register-button {
+    background-color: #4a4a4a;
+}
+
+.dark-mode .register-link,
+.dark-mode .login-link {
+    color: #b0b0b0;
+}
+
+.dark-mode .register-link a,
+.dark-mode .login-link a {
+    color: #e0e0e0;
+}
+
+.dark-mode .modal-content {
+    background-color: #2a2a2a;
+}
+
+.dark-mode .modal-content input,
+.dark-mode .modal-content select,
+.dark-mode .modal-content textarea {
+    background-color: #333333;
+    color: #e0e0e0;
+    border-color: #4a4a4a;
+}
+
+.dark-mode .close-btn {
+    color: #e0e0e0;
+}
+
+.dark-mode .form-control {
+    background-color: #333333;
+    color: #e0e0e0;
+    border-color: #4a4a4a;
+}
+
+.dark-mode .form-control:focus {
+    border-color: #b0b0b0;
+}
+
+.dark-mode select.form-control {
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.5 6l5 5 5-5H1.5z"/></svg>');
+}
+
+.dark-mode .btn-close-modal {
+    background-color: #8B0000;
+}
+
+.dark-mode .btn-submit {
+    background-color: #4a4a4a;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.dark-mode .card {
+    background-color: #2a2a2a;
+}
+
+.dark-mode-checkbox {
+    display: none;
+}
+
+.dark-mode-label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    background: #ccc;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.dark-mode-label:after {
+    content: '';
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+.dark-mode-checkbox:checked + .dark-mode-label {
+    background: #333;
+}
+
+.dark-mode-checkbox:checked + .dark-mode-label:after {
+    left: calc(100% - 2.5px);
+    transform: translateX(-100%);
+}
+
+.dark-mode-label:active:after {
+    width: 30px;
+}
+
+.toggle-label {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.settings-container {
+        width: 100%;
+        margin: 0 auto;
+        
+    }
+
+.card {
+    background-color: #FFF4EA;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 50px;
+}
+
+ 
+    .profile-content {
+        display: flex;
+        align-items: flex-start;
+        margin: 20px 20px 20px 20px;
+    }
+
+    .profile-image {
+        flex: 0 0 150px;
+        margin-right: 20px;
+    }
+
+    .profile-pic {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .profile-details {
+        flex: 1;
+    }
+
+    .profile-details span {
+        padding: 30px;
+        font-size: 1.2rem;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+   
+
+    .toggle-switch {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .toggle-switch input[type="checkbox"] {
+        display: none;
+    }
+
+    .toggle-switch label {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        background-color: #ccc;
+        border-radius: 34px;
+        transition: background-color 0.2s;
+    }
+
+    .toggle-switch label::after {
+        content: '';
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        left: 4px;
+        top: 4px;
+        background-color: white;
+        border-radius: 50%;
+        transition: transform 0.2s;
+    }
+
+    .toggle-switch input[type="checkbox"]:checked + label {
+        background-color: #2196F3;
+    }
+
+    .toggle-switch input[type="checkbox"]:checked + label::after {
+        transform: translateX(26px);
+    }
+
+    .save-btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .save-btn:hover {
+        background-color: #45a049;
+    }

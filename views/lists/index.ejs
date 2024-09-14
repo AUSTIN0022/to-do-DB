@@ -1,0 +1,111 @@
+<% layout('layout') %>
+<!-- <h1>My Notes</h1> -->
+<!-- Search Bar -->
+<div class="search-bar">
+    <form id="search-form">
+        <input type="text" name="search" placeholder="Search notes...">
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<!-- Add Notes -->
+<div class="notes-header">
+    <h2>Your Notes</h2>
+    <button class="new-note-btn" id="openModal">New Note</button>
+</div>
+<!-- Notes List -->
+<div class="notes-grid" id="notesGrid"> 
+    <% lists.forEach(list => { %>
+        <div class="note-card" id="note-card-<%= list._id %>">
+            <a href="/lists/<%= list._id %>" class="list-card">
+                <h3 id="list-title-<%= list._id %>"><%= list.title %></h3>
+                <p><%= list.description %></p>
+            </a>
+                <div class="note-actions">
+                    <button type="button" class="edit-btn" onclick="openEditModal('<%= list._id %>', '<%= list.title %>', '<%= list.category %>', '<%= list.description %>')">Edit List</button>
+                    <button type="button" class="delete-btn" onclick="deleteList('<%= list._id %>')">Delete List</button>
+                </div>
+           
+        </div>
+               
+    <% }) %> 
+</div>
+
+
+<div class="modal" id="noteModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="noteModalLabel">Create New List</h1>
+                <button type="button" class="close-btn" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form action="/lists/create" method="POST">
+                    <div class="mb-3">
+                      <label for="title" class="col-form-label">List Title:</label>
+                      <input type="text" class="form-control" name="list[title]" id="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categorie" class="col-form-label">Categories:</label>
+                        <select name="list[category]" id="categorie" class="form-control" required>
+                            <option value="Travel">Travel</option>
+                            <option value="Work">Work</option>
+                            <option value="Personal">Personal</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="description" class="col-form-label">Description (optional):</label>
+                      <textarea class="form-control" name="list[description]" id="description"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn-close-modal" data-bs-dismiss="modal">Close</button> -->
+                        <button type="submit" class="btn-submit">Create List</button>
+                    </div>
+                  </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- Edit List Modal -->
+<div class="modal" id="editNoteModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="editNoteModalLabel">Edit List</h1>
+                <button type="button" class="close-btn" aria-label="Close" class="btn-close-modal" data-bs-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="editListForm" method="POST">
+                    <div class="mb-3">
+                        <label for="editTitle" class="col-form-label">List Title:</label>
+                        <input type="text" class="form-control" name="list[title]" id="editTitle" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editCategorie" class="col-form-label">Categories:</label>
+                        <select name="list[category]" id="editCategorie" class="form-control" required>
+                            <option value="Travel">Travel</option>
+                            <option value="Work">Work</option>
+                            <option value="Personal">Personal</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editDescription" class="col-form-label">Description (optional):</label>
+                        <textarea class="form-control" name="list[description]" id="editDescription"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <button type="button" class="btn-close-modal" data-bs-dismiss="modal">Close</button> -->
+                        <button type="submit" class="btn-submit">Update List</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+  
+  
+  
+
+<script src="/js/index.js" ></script>

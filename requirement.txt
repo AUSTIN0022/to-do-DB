@@ -1,0 +1,12 @@
+express
+express-session
+passport
+paaport-local
+passport-google-oauth2
+mongoose
+passport-local-mongoose
+path
+ejs-mate
+method-override
+connect-flash
+date-and-time
