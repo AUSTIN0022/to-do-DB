@@ -9,7 +9,7 @@ const { isLoggedIn } = require("../middleware/auth");
 // GET /
 
 // GET /lists - Display all lists
-router.get("/", isLoggedIn, async (req, res) => {
+router.get("/", async (req, res) => {
     const lists = await List.find({ owner: req.user._id });
     res.render("lists/index", { lists });
 }); 
