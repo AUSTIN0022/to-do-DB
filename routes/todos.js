@@ -4,7 +4,7 @@ const List = require("../models/List");
 const Todo = require("../models/Todo");
 const { isLoggedIn } = require("../middleware/auth");
 
-router.post("/update-checkbox/:todoId", isLoggedIn, async (req, res) => {
+router.post("/update-checkbox/:todoId",  async (req, res) => {
     try {
         const { todoId } = req.params;
         const { checked } = req.body;
@@ -36,7 +36,7 @@ router.post("/update-checkbox/:todoId", isLoggedIn, async (req, res) => {
 
 
 // POST /lists/:listId/todos - Add a new todo
-router.post("/:listId/todos", isLoggedIn, async (req, res) => {
+router.post("/:listId/todos",  async (req, res) => {
     const { listId } = req.params;
     const list = await List.findById(listId);
     const todo = new Todo(req.body.todo);
@@ -49,7 +49,7 @@ router.post("/:listId/todos", isLoggedIn, async (req, res) => {
 });
 
 // PUT /lists/:listId/todos/:todoId - Update a todo
-router.put("/:listId/todos/:todoId", isLoggedIn, async (req, res) => {
+router.put("/:listId/todos/:todoId",  async (req, res) => {
     const { listId, todoId } = req.params;
     await Todo.findByIdAndUpdate(todoId, { ...req.body.todo });
     req.flash("success", "Updated todo!");
@@ -57,7 +57,7 @@ router.put("/:listId/todos/:todoId", isLoggedIn, async (req, res) => {
 });
 
 // DELETE /lists/:listId/todos/:todoId - Delete a todo
-router.delete("/:listId/todos/:todoId", isLoggedIn, async (req, res) => {
+router.delete("/:listId/todos/:todoId", async (req, res) => {
     const { listId, todoId } = req.params;
     await List.findByIdAndUpdate(listId, { $pull: { todos: todoId } });
     await Todo.findByIdAndDelete(todoId);
