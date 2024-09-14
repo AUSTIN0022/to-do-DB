@@ -105,7 +105,7 @@ function ensureAuthenticated(req, res, next) {
     }
     res.redirect('/login');
 }
-app.post('/settings', ensureAuthenticated, async (req, res) => {
+app.post('/settings', async (req, res) => {
     try {
         const { username, firstName, lastName, darkMode, emailNotifications } = req.body;
         
