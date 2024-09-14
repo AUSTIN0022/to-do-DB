@@ -94,7 +94,7 @@ router.delete("/:id", isLoggedIn, async (req, res) => {
 });
 
 // search List
-router.post("/search", isLoggedIn, async (req, res) => {
+router.post("/search", async (req, res) => {
     const { search } = req.body;  // Use req.body for POST requests
     const userId = req.user._id;
     console.log("\n\n"+req.body+"\n\n");
